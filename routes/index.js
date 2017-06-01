@@ -50,13 +50,11 @@ router.get('/', function(req, res, next) {
     }
 
     function sendSSE(req, res) {
-        //specific head with content-type needed to create stream        
-        res.writeHead(200, {
-            'Content-Type': 'text/event-stream',
-            'Cache-Control': 'no-cache'
-        });
+        // TODO: specific head with content-type needed to create stream        
 
-        // trigger a change each second
+
+
+        // trigger a change each 6 seconds
         // this should be an event from the api that indicates there are new items.
         setInterval(function() {
             request(requestUrl, function(req, res) {
@@ -73,10 +71,8 @@ router.get('/', function(req, res, next) {
     function constructSSE(res, collection) {
         collection = collection.artObjects;
         collection.forEach((art) => {
-            //server sent event stream format: start with data: + object + \n\n
-            res.write('data: '+ JSON.stringify({id: art.id})+ '\n\n');
-            res.write('data: '+ JSON.stringify({title: art.title}) +'\n\n');
-            res.write('data: '+ JSON.stringify({url: art.webImage.url})  +'\n\n');
+            // TODO: server sent event stream format: start with res.write( data: + JSON.stringify(object) + \n\n )
+            // objects are { id: art.id },{title: art.title}, {url: art.webImage.url}
         });
     }
 });

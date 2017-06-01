@@ -91,32 +91,26 @@ function combineWithText(content){
     artImagecontainer.appendChild(content);
 }
 
-// websockets (WS)
-websocket.onopen = (e) =>  {
-    console.log(e);
-};
+// WEBSOCKETS (WS)
 
-websocket.onmessage = (msg) => {
-    votes = JSON.parse(msg.data);
-    console.log(votes.id);
+// websocket = object
+
+// add the different methods and log results
+
+// onopen(e)
+
+// onmessage(message)
+/* 
+    add this in de callback function
+    votes = JSON.parse(message.data);
     votingCounter.innerText = votes.votes;
-};
+*/
 
-websocket.onerror = function(e) {
-    console.log(e);
-};
+// onerror(e)
 
-websocket.onclose = (e) =>  {
-    console.log(code, reason);
-    websocket.close();
-};
+// onclose(e)
 
 // on refresh close stream connections
-window.addEventListener('beforeunload', () => {
-    // serverSentEvents.close();
-    websocket.close();
-});
-
 stopStream.addEventListener('click', () => {
     serverSentEvents.close();    
 });
