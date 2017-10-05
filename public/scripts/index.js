@@ -1,8 +1,4 @@
 const serverSentEvents = new EventSource('/');
-const collectionContainer = document.querySelector('[data-collection]');
-const artTitleContainer = document.querySelector('[data-art-title]');
-const artImagecontainer = document.querySelector('[data-art-image]');
-const textContainer = document.querySelector('[data-text-container]');
 const stopStream = document.querySelector('[data-stop-eventstream]');
 let artCollectionImageUrl = [];
 let objectURL = '';
@@ -56,9 +52,3 @@ window.addEventListener('beforeunload', () => {
 stopStream.addEventListener('click', () => {
     serverSentEvents.close();    
 });
-
-window.onbeforeunload = () => {
-    setTimeout(() => {
-        serverSentEvents.close(); 
-    }, 0);
-};
