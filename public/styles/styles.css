@@ -1,6 +1,10 @@
-.voting-counter{
+.voting-counter {
     width: 100%;
     display:flex;
     justify-content: center;
     font-size: 2rem;
+}
+
+h3{
+
 }

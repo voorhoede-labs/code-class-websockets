@@ -9,39 +9,8 @@ const requestUrl = 'https://www.rijksmuseum.nl/api/nl/collection?ps=1&key=imrDor
 
 router.get('/', function(req, res, next) {
     /* 
-        Websocket 
-    */ 
-
-    wss.on('connection', (socket) => {
-        socket.on('message', (message) => {
-       
-            let artObject = JSON.parse(message);
-
-            /*
-                here should come code to save data in de database
-             */
-
-            console.log(artObject);
-
-            /*
-                here should come code to fetch stored data in de database and 
-                it should be passed in socket send as an object
-             */
-
-            socket.send(JSON.stringify(artObject));
-
-        });
-
-        socket.on('close', (code, reason) => {
-            console.log('connection closed', code, reason);
-        });
-    });
-
-    /* 
         Sever Sent Event 
     */
-
-
     if (req.headers.accept == 'text/event-stream') {
         sendSSE(req, res);
     } else {
@@ -74,9 +43,13 @@ router.get('/', function(req, res, next) {
         collection = collection.artObjects;
         collection.forEach((art) => {
             //server sent event stream format: start with data: + object + \n\n
-            res.write('data: '+ JSON.stringify({id: art.id})+ '\n\n');
-            res.write('data: '+ JSON.stringify({title: art.title}) +'\n\n');
-            res.write('data: '+ JSON.stringify({url: art.webImage.url})  +'\n\n');
+            res.write(
+                'data: '+ 
+                JSON.stringify({
+                    id: art.id,
+                    title: art.title,
+                    url: art.webImage.url})
+                + '\n\n');
         });
     }
 });

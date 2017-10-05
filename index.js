@@ -28,10 +28,8 @@ function listening () {
 		open: false,
 		port: port + 1,
 		proxy: {
-			target: 'localhost:' + port,
-			ws: true
+			target: 'localhost:' + port
 		},
 		ui: false
-
 	});
 }
