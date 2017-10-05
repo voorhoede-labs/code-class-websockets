@@ -8,10 +8,6 @@ const path = require('path');
 app.set('views', path.join(__dirname, '/public/'));
 app.set('view engine', 'hbs');
 
-// you can conditionally add routes and behaviour based on environment
-const isDevelopment = 'development' === process.env.NODE_ENV;
-const isProduction = 'production' === process.env.NODE_ENV;
-
 // static example, add real routes here instead
 app.use('/', router);
 

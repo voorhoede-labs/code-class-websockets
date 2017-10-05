@@ -1,20 +1,20 @@
-const serverSentEvents = new EventSource('/');
+const serverSentEvents = new EventSource('/path-to-endpoint');
 const stopStream = document.querySelector('[data-stop-eventstream]');
+const streamTarget = document.querySelector('[data-stream-target]');
 let artCollectionImageUrl = [];
 let objectURL = '';
 let imageUrl = ''; 
-let artObject = {};
 let imgEl = '';
 let imgId = '';
 let votes = '';
 
-// server-sent-events (SSE) and xhr
-// streaming images 
+// server-sent-events (SSE) and Fetch API
 serverSentEvents.onmessage = e => {
     let streamedObject = JSON.parse(e.data);    
-    artObject = {
+    let artObject = {
         title: streamedObject.title,
-        url: streamedObject.url
+        url: streamedObject.url,
+        id: streamedObject.id
     }
     getImageFromUrl(artObject);
 };
@@ -36,12 +36,13 @@ const blobToImage = artObject => {
 
 const createImageElements = artObject => {
     const imgContainer = document.createElement('div');
+    imgContainer.classList.add('image-stream-item');
     imgContainer.innerHTML = `
-        <div class="image-container">
-            <img src=${artObject.imageUrl} class="image" />
+        <div class="image-container" data-image-id="${artObject.id}">
+            <img src="${artObject.imageUrl}" class="image" />
             <span class="image-title">${artObject.title}</span>
         </div>`;
-    return document.body.appendChild(imgContainer);
+    return streamTarget.appendChild(imgContainer);
 }
 
 // on refresh close stream connections

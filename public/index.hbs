@@ -1,22 +1,12 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
-</head>
-<body>
-    <main>
-        <div>
-            <button data-stop-eventstream>cancel stream</button>
-        </div>
-        
-        <div class="container">
-            <div class="container__full-width">
-                <h2 data-art-title></h2>
-                <div data-art-image></div>
-            </div>
-        </div>
-    </main>
-    <script defer src="./scripts/index.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="./styles/styles.css" type="text/css">
+    </head>
+    <body>
+        <button data-stop-eventstream>cancel stream</button>
+        <main class="image-stream" data-stream-target></main>
+        <script defer src="./scripts/index.js"></script>
+    </body>
 </html>
