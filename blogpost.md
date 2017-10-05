@@ -57,16 +57,16 @@ Maybe the question that should be answer is does the user send a lot of messages
 
 I would opt using server sent events, depending on what the goal of the application is. This might sound like an obvious statement but still I feel people jump easier on the Websocket bandwagon, while SSE could be a more fitting solution to their project. I think SSE could have some prime time in the limelight. 
 
-links to resources
+Additional links to resources:
 
-https://hpbn.co/server-sent-events-sse/#eventsource-api
+[eventsource hpbn api](https://hpbn.co/server-sent-events-sse/#eventsource-api)
 
-https://streamdata.io/blog/server-sent-events/
+[sse streamdata.io](https://streamdata.io/blog/server-sent-events/)
 
-https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+[mdn using sse](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 
-https://www.infoq.com/articles/websocket-and-http2-coexist
+[websockets vs http2](https://www.infoq.com/articles/websocket-and-http2-coexist)
 
-https://www.fastly.com/blog/server-sent-events-fastly/
+[sse fastly blogpost](https://www.fastly.com/blog/server-sent-events-fastly/)
 
-https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events
+[whatwg sse](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events)
