@@ -83,7 +83,9 @@ function createImageElements(objectURL){
     imgEl.setAttribute('src', objectURL);
     imgEl.setAttribute('width', 500);
     imgContainer.appendChild(imgEl);
-
+    // const image = `<div> 
+    //                   <img src="${objectUrl}" /> 
+    //                </div>`;
     combineWithText(imgContainer);   
 }
 
